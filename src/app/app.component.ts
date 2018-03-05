@@ -60,6 +60,8 @@ export class AppComponent {
   getPost(postId) {
     this.postsCol = this.afs.collection('posts', ref => ref.where('firstname', '==', 'Alvin'));
   }
-
+  deletePost(postId) {
+    this.afs.doc('posts/'+postId).delete();
+  }
 }
 
