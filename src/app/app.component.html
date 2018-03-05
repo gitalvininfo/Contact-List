@@ -1,0 +1,30 @@
+
+
+<input type="text" [(ngModel)]="firstname" name="firstname" placeholder="Enter Firstname">
+<input type="text" [(ngModel)]="lastname" name="lastname" placeholder="Enter Lastname">
+<input type="text" [(ngModel)]="phone" name="phone" placeholder="Enter Phone">
+<input type="text" [(ngModel)]="mobile" name="mobile" placeholder="Enter Mobile">
+<input type="text" [(ngModel)]="email" name="email" placeholder="Enter Email">
+<input type="text" [(ngModel)]="address" name="address" placeholder="Enter Address">
+<input type="submit" value="Add a Post" (click)="addPost()">
+
+<ul *ngFor="let post of posts | async">
+  <li (click)="getPost(post.id)">
+    <strong>{{ post.data.firstname}}</strong> (<a href="#" (click)="deletePost(post.id)">delete</a>)
+    <strong>{{ post.data.lastname}}</strong><br>
+    <strong>{{ post.data.phone}}</strong><br>
+    <strong>{{ post.data.mobile}}</strong><br>
+    <strong>{{ post.data.email}}</strong><br>
+    <strong>{{ post.data.address}}</strong><br>
+    
+  </li>
+</ul>
+
+<h1>A specific post:</h1>
+
+<h3>{{ (singlePost | async)?.firstname }}</h3>
+<h3>{{ (singlePost | async)?.lastname }}</h3>
+<h3>{{ (singlePost | async)?.phone }}</h3>
+<h3>{{ (singlePost | async)?.mobile }}</h3>
+<h3>{{ (singlePost | async)?.email }}</h3>
+<h3>{{ (singlePost | async)?.address }}</h3>
